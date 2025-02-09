@@ -3,6 +3,8 @@ return {
     config = function()
         local lspconfig = require('lspconfig')
 
+        lspconfig.clangd.setup{}
+
         lspconfig.sourcekit.setup {
             capabilities = {
                 workspace = {
