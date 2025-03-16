@@ -1,8 +1,7 @@
 return {
     "ntk148v/habamax.nvim",
-    priority = 1000,
-    init = function()
+    dependencies = { "rktjmp/lush.nvim" },
+    config = function()
         vim.cmd.colorscheme("habamax")
     end,
 }
-
