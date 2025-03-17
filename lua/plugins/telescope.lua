@@ -12,8 +12,8 @@ return {
         vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
         vim.keymap.set("n", "<leader>sf", builtin.live_grep, { desc = "[S]earch [F]rep (Grep XD)" })
         vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-        vim.keymap.set("n", "<leader><leader>", builtin.resume, { desc = "[S]earch [R]esume" })
-        vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+        vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, { desc = "[S]earch [_] old files" })
+        vim.keymap.set("n", "<leader>s.", builtin.resume, { desc = '[S]earch Recent Files ("." for repeat)' })
         -- vim.keymap.set("n", "MISSING", builtin.buffers, { desc = "[ ] Find existing buffers" })
     end,
 }
