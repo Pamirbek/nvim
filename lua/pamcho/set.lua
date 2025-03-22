@@ -74,3 +74,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank()
     end,
 })
+
+-- Disable virtual text
+vim.diagnostic.config({
+  virtual_text = false,
+})
