@@ -7,7 +7,8 @@ return {
     },
     keys = {
         { "<leader>b", function() require('dap').toggle_breakpoint() end },
-        { "<leader>%", function() require('dap').continue() end },
+        { "<F6>", function() require('dap').continue() end },
+        { "<F10>", function() require('dap').terminate() end },
     },
     config = function()
         local dap, dapui = require("dap"), require("dapui")

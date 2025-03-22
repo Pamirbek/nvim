@@ -4,6 +4,23 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function ()
 
+        local actions = require("telescope.actions")
+        local open_with_trouble = require("trouble.sources.telescope").open
+
+        -- Use this to add more results without clearing the trouble list
+        local add_to_trouble = require("trouble.sources.telescope").add
+
+        local telescope = require("telescope")
+
+        telescope.setup({
+            defaults = {
+                mappings = {
+                    i = { ["<C-t>"] = open_with_trouble },
+                    n = { ["<C-t>"] = open_with_trouble },
+                },
+            },
+        })
+
         local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
         vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
