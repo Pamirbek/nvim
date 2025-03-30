@@ -34,6 +34,11 @@ return {
             desc = "Quickfix List (Trouble)",
         },
         {
+            "<leader>xT",
+            "<cmd>Trouble telescope toggle<cr>",
+            desc = "Telescope List (Trouble)",
+        },
+        {
             "<C-j>",
             function()
                 require("trouble").next({skip_groups = true, jump = true})

@@ -5,15 +5,15 @@ return {
 
         lspconfig.clangd.setup{}
 
-        lspconfig.sourcekit.setup {
-            capabilities = {
-                workspace = {
-                    didChangeWatchedFiles = {
-                        dynamicRegistration = true,
-                    },
-                },
-            },
-        }
+        -- lspconfig.sourcekit.setup {
+        --     capabilities = {
+        --         workspace = {
+        --             didChangeWatchedFiles = {
+        --                 dynamicRegistration = true,
+        --             },
+        --         },
+        --     },
+        -- }
 
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = "LSP Actions",
