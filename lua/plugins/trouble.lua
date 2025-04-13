@@ -35,7 +35,7 @@ return {
         },
         {
             "<leader>xT",
-            "<cmd>Trouble telescope toggle<cr>",
+            "<cmd>Trouble telescope_files toggle<cr>",
             desc = "Telescope List (Trouble)",
         },
         {
