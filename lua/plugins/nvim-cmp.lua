@@ -31,7 +31,7 @@ return {
                     end,
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if vim.fn["vsnip#available"](1) == 1 then
                             feedkey("<Plug>(vsnip-jump-next)", "")

@@ -3,7 +3,9 @@ return {
     config = function()
         local lspconfig = require('lspconfig')
 
-        lspconfig.clangd.setup{}
+        lspconfig.clangd.setup{
+              cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--query-driver=/usr/bin/clang,/usr/bin/gcc,/usr/bin/arm-none-eabi-gcc'},
+        }
 
         -- lspconfig.sourcekit.setup {
         --     capabilities = {
