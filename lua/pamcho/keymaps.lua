@@ -6,7 +6,8 @@ vim.g.maplocalleader = " "
 --
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "-", vim.cmd.Ex)
 
 -- Copy to clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
