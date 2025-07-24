@@ -39,14 +39,14 @@ return {
             desc = "Telescope List (Trouble)",
         },
         {
-            "<C-j>",
+            "<C-n>",
             function()
                 require("trouble").next({skip_groups = true, jump = true})
             end,
             desc = "Buffer Diagnostics (Trouble)",
         },
         {
-            "<C-k>",
+            "<C-p>",
             function()
                 require("trouble").prev({skip_groups = true, jump = true})
             end,

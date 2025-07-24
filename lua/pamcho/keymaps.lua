@@ -60,6 +60,10 @@ vim.keymap.set("n", "<A-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<A-j>", "<C-w><C-j>", { desc = "Move focus to the bottom window" })
 vim.keymap.set("n", "<A-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Compile and execute file (c++)
+vim.keymap.set("n", "<F8>", ":w <CR> :!g++ -std=c++0x % -o %< && ./%< <CR>", { desc = "Save and compile and execut file (c++)" })
+vim.keymap.set("n", "<F9>", ":!g++ -std=c++0x % -o %< && ./%< <CR>", { desc = "Compile and execut file (c++)" })
+
 -- No more needed, send everything to Trouble
 -- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 -- vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
