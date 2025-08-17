@@ -61,8 +61,10 @@ vim.keymap.set("n", "<A-j>", "<C-w><C-j>", { desc = "Move focus to the bottom wi
 vim.keymap.set("n", "<A-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Compile and execute file (c++)
-vim.keymap.set("n", "<F8>", ":w <CR> :!g++ -std=c++0x % -o %< && ./%< <CR>", { desc = "Save and compile and execut file (c++)" })
-vim.keymap.set("n", "<F9>", ":!g++ -std=c++0x % -o %< && ./%< <CR>", { desc = "Compile and execut file (c++)" })
+-- vim.keymap.set("n", "<F8>", ":w <CR> :!g++ -Wall -std=c++20 % -o %< && ./%< <CR>", { desc = "Save, compile and execute file" })
+-- vim.keymap.set("n", "<F9>", ":w <CR> :!g++ -Wall -g -std=c++20 % -o %<<CR>", { desc = "Compile file with debug symbols (c++)" })
+vim.keymap.set("n", "<F8>", ":w <CR> :!clang++ -Wall -std=c++20 *.cpp -o output && ./output <CR>", { desc = "Save, compile all files and execute" })
+vim.keymap.set("n", "<F9>", ":w <CR> :!clang++ -Wall -g -std=c++20 *.cpp -o output <CR>", { desc = "Save, compile all files and execute" })
 
 -- No more needed, send everything to Trouble
 -- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")

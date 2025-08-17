@@ -32,13 +32,13 @@ return {
                 },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-                    ["<Tab>"] = cmp.mapping(function(fallback)
+                    ["<C-l>"] = cmp.mapping(function(fallback)
                         if vim.fn["vsnip#available"](1) == 1 then
                             feedkey("<Plug>(vsnip-jump-next)", "")
                         end
                     end, {"i", "s"}),
 
-                    ["<S-Tab>"] = cmp.mapping(function()
+                    ["<C-h>"] = cmp.mapping(function()
                         if vim.fn["vsnip#jumpable"](-1) == 1 then
                             feedkey("<Plug>(vsnip-jump-prev)", "")
                         end

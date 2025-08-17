@@ -8,7 +8,9 @@ return {
     keys = {
         { "<leader>b", function() require('dap').toggle_breakpoint() end },
         { "<F6>", function() require('dap').continue() end },
+        { "<F7>", function() require('dap').step_over() end },
         { "<F10>", function() require('dap').terminate() end },
+        { "<F12>", function() require('dapui').toggle() end },
     },
     config = function()
         local dap, dapui = require("dap"), require("dapui")
@@ -27,18 +29,16 @@ return {
             dapui.close()
         end
 
-        dap.adapters.codelldb = {
+        dap.adapters.gdb = {
             type = "executable",
-            command = "/home/pamcho/Library/codelldb-linux-x64/extension/adapter/codelldb", -- or if not in $PATH: "/absolute/path/to/codelldb"
-
-            -- On windows you may have to uncomment this:
-            -- detached = false,
+            command = "gdb",
+            args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
         }
 
         dap.configurations.cpp = {
             {
-                name = "Launch file",
-                type = "codelldb",
+                name = "Launch",
+                type = "gdb",
                 request = "launch",
                 program = function()
                     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
