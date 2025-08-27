@@ -75,7 +75,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
--- Disable virtual text
-vim.diagnostic.config({
-  virtual_text = false,
-})
+vim.o.winborder = 'rounded'

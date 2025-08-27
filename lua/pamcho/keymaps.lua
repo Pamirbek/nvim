@@ -14,8 +14,8 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Moving selected lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Add next line to current one without moving cursor
 vim.keymap.set("n", "J", "mzJ`z")
@@ -63,8 +63,22 @@ vim.keymap.set("n", "<A-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- Compile and execute file (c++)
 -- vim.keymap.set("n", "<F8>", ":w <CR> :!g++ -Wall -std=c++20 % -o %< && ./%< <CR>", { desc = "Save, compile and execute file" })
 -- vim.keymap.set("n", "<F9>", ":w <CR> :!g++ -Wall -g -std=c++20 % -o %<<CR>", { desc = "Compile file with debug symbols (c++)" })
-vim.keymap.set("n", "<F8>", ":w <CR> :!clang++ -Wall -std=c++20 *.cpp -o output && ./output <CR>", { desc = "Save, compile all files and execute" })
-vim.keymap.set("n", "<F9>", ":w <CR> :!clang++ -Wall -g -std=c++20 *.cpp -o output <CR>", { desc = "Save, compile all files and execute" })
+
+function compileAndExecute()
+    vim.cmd('w')
+    vim.cmd('vsplit')
+    vim.cmd('term clang++ -Wall -std=c++20 *.cpp -o output && ./output')
+end
+vim.keymap.set("n", "<F8>", compileAndExecute, { desc = "Save, compile all files and execute" })
+
+function compileForDebug()
+    vim.cmd('w')
+    vim.cmd('!clang++ -Wall -g -std=c++20 *.cpp -o output')
+end
+vim.keymap.set("n", "<F9>", compileForDebug, { desc = "Save, compile all files and execute" })
+
+-- Exit terminal mode
+vim.keymap.set("t", "<C-x>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
 
 -- No more needed, send everything to Trouble
 -- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
