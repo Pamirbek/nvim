@@ -1,16 +1,17 @@
 return {
     "neovim/nvim-lspconfig",
     config = function()
-        local lspconfig = require('lspconfig')
 
-        lspconfig.clangd.setup {
+        vim.lsp.config( "clangd", {
             keys = {
                 { "<leader>o", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
             },
             cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--fallback-style=LLVM'-- '-style=file:../pamcho/.clang-format'
                 -- '--query-driver=/usr/bin/clang,/usr/bin/clang++,/usr/bin/gcc,/usr/bin/arm-none-eabi-gcc'
             },
-        }
+        })
+
+        vim.lsp.enable({"clangd"})
 
 
         -- lspconfig.asm_lsp.setup { }

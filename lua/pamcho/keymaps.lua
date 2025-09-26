@@ -64,21 +64,18 @@ vim.keymap.set("n", "<A-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- vim.keymap.set("n", "<F8>", ":w <CR> :!g++ -Wall -std=c++20 % -o %< && ./%< <CR>", { desc = "Save, compile and execute file" })
 -- vim.keymap.set("n", "<F9>", ":w <CR> :!g++ -Wall -g -std=c++20 % -o %<<CR>", { desc = "Compile file with debug symbols (c++)" })
 
-function compileAndExecute()
-    vim.cmd('w')
-    vim.cmd('vsplit')
-    vim.cmd('term clang++ -Wall -std=c++20 *.cpp -o output && ./output')
-end
-vim.keymap.set("n", "<F8>", compileAndExecute, { desc = "Save, compile all files and execute" })
-
-function compileForDebug()
-    vim.cmd('w')
-    vim.cmd('!clang++ -Wall -g -std=c++20 *.cpp -o output')
-end
-vim.keymap.set("n", "<F9>", compileForDebug, { desc = "Save, compile all files and execute" })
-
--- Exit terminal mode
-vim.keymap.set("t", "<C-x>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
+-- function compileAndExecute()
+--     vim.cmd('w')
+--     vim.cmd('vsplit')
+--     vim.cmd('term clang++ -Wall -std=c++20 *.cpp -o output && ./output')
+-- end
+-- vim.keymap.set("n", "<F8>", compileAndExecute, { desc = "Save, compile all files and execute" })
+--
+-- function compileForDebug()
+--     vim.cmd('w')
+--     vim.cmd('!clang++ -Wall -g -std=c++20 *.cpp -o output')
+-- end
+-- vim.keymap.set("n", "<F9>", compileForDebug, { desc = "Save, compile all files and execute" })
 
 -- No more needed, send everything to Trouble
 -- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")

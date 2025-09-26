@@ -9,7 +9,7 @@ return {
         { "<leader>b", function() require('dap').toggle_breakpoint() end },
         { "<F6>", function() require('dap').continue() end },
         { "<F7>", function() require('dap').step_over() end },
-        { "<F10>", function() require('dap').terminate() end },
+        { "<F11>", function() require('dap').terminate() end },
         { "<F12>", function() require('dapui').toggle() end },
     },
     config = function()
