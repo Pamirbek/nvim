@@ -10,9 +10,9 @@ return {
                 -- '--query-driver=/usr/bin/clang,/usr/bin/clang++,/usr/bin/gcc,/usr/bin/arm-none-eabi-gcc'
             },
         })
-
         vim.lsp.enable({"clangd"})
 
+        vim.lsp.enable({"ts_ls"})
 
         -- lspconfig.asm_lsp.setup { }
 
