@@ -82,3 +82,20 @@ vim.keymap.set("n", "<A-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 -- vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
 -- vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
+
+local split_win = nil
+
+function ToggleTerminalWindow()
+  if split_win and vim.api.nvim_win_is_valid(split_win) then
+    -- Second call: close the split
+    vim.api.nvim_win_close(split_win, true)
+    split_win = nil
+  else
+    -- First call: create the split
+    vim.cmd('70vsplit') -- use "vsplit" if you want vertical
+    vim.cmd('terminal')
+    split_win = vim.api.nvim_get_current_win()
+  end
+end
+
+vim.keymap.set("n", "<leader>t", ToggleTerminalWindow, { desc = "open split terminal"})

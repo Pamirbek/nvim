@@ -12,8 +12,13 @@ return {
         })
         vim.lsp.enable({"clangd"})
 
-        vim.lsp.enable({"ts_ls"})
-        vim.lsp.enable({"tailwindcss"})
+        -- vim.lsp.enable({"ts_ls"})
+        -- vim.lsp.enable({"tailwindcss"})
+
+        vim.lsp.config('gopls', {
+            cmd = {'/Users/pamiralmazov/go/bin/gopls'},
+        })
+        vim.lsp.enable('gopls')
 
         -- lspconfig.asm_lsp.setup { }
 
@@ -38,7 +43,7 @@ return {
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, {noremap = true, desc = "Hover"})
                 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {noremap = true, desc = "Definition"})
                 vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {noremap = true, desc = "Declaration"})
-                vim.keymap.set("n", "gca", vim.lsp.buf.code_action, {noremap = true, desc = "Code action"})
+                vim.keymap.set("n", "gra", vim.lsp.buf.code_action, {noremap = true, desc = "Code action"})
                 vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, {noremap = true, desc = "Format"})
             end,
         })

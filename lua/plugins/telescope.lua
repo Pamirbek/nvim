@@ -14,6 +14,9 @@ return {
 
         telescope.setup({
             defaults = {
+                file_ignore_patterns = {
+                    "node_modules", "android", "ios"
+                },
                 mappings = {
                     i = { ["<C-t>"] = open_with_trouble },
                     n = { ["<C-t>"] = open_with_trouble },

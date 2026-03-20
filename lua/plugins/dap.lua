@@ -4,6 +4,7 @@ return {
     dependencies = {
         "nvim-neotest/nvim-nio", -- required for nvim-dap-ui
         "rcarriga/nvim-dap-ui",
+        "leoluz/nvim-dap-go",
     },
     keys = {
         { "<leader>b", function() require('dap').toggle_breakpoint() end },
@@ -47,8 +48,23 @@ return {
                 stopOnEntry = false,
             },
         }
-
         dap.configurations.c = dap.configurations.cpp
         dap.configurations.rust = dap.configurations.cpp
+
+        dap.adapters.go = {
+            type = 'executable';
+            command = 'node';
+            args = {os.getenv('HOME') .. '/Installs/vscode-go/extension/dist/debugAdapter.js'};
+        }
+        dap.configurations.go = {
+            {
+                type = 'go';
+                name = 'Debug';
+                request = 'launch';
+                showLog = false;
+                program = "${file}";
+                dlvToolPath = vim.fn.exepath('/opt/homebrew/bin/dlv')  -- Adjust to where delve is installed
+            },
+        }
     end
 }
